@@ -42,6 +42,7 @@ CREATE TABLE IF NOT EXISTS `dbcolegio_preg3`.`Curso` (
   `Nombre` VARCHAR(100) NOT NULL,
   `Descripcion` VARCHAR(256) NULL,
   `Profesor` INT NOT NULL,
+  `Precio` DECIMAL(11,2) NOT NULL,
   `Horario` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idCurso`, `Profesor`),
   INDEX `fk_curso_profesor_idx` (`Profesor` ASC) VISIBLE,
