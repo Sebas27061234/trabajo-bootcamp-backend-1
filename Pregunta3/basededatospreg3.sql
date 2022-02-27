@@ -138,6 +138,28 @@ CREATE TABLE IF NOT EXISTS `dbcolegio_preg3`.`DetalleMatricula` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
+-- -----------------------------------------------------
+-- Table `dbcolegio_preg3`.`Alumno_Curso`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `dbcolegio_preg3`.`Alumno_Curso` ;
+
+CREATE TABLE IF NOT EXISTS `dbcolegio_preg3`.`Alumno_Curso` (
+  `idAlumno` CHAR(8) NOT NULL,
+  `idCurso` INT NOT NULL,
+  INDEX `fk_alumnocurso_alumno_idx` (`idAlumno` ASC) VISIBLE,
+  INDEX `fk_alumnocurso_curso_idx` (`idCurso` ASC) VISIBLE,
+  CONSTRAINT `fk_alumnocurso_alumno`
+    FOREIGN KEY (`idAlumno`)
+    REFERENCES `dbcolegio_preg3`.`Alumno` (`DNI`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_alumnocurso_curso`
+    FOREIGN KEY (`idCurso`)
+    REFERENCES `dbcolegio_preg3`.`Curso` (`idCurso`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
